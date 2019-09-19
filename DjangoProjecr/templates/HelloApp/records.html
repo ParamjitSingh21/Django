@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+<head>
+    <title>AccessRecord</title>
+</head>
+<body>
+    <h2>This are AccessRecord</h2>
+    <div class = "djangotwo">
+    {% if records %}
+        <table border="2px solid black">
+            <thead>
+                <th>Site Name</th>
+                <th>Date Accessed</th>
+            </thead>
+            {% for acc in records%}
+            <tr>
+                <td>{{ acc.name }}</td>
+                <td>{{ acc.date }}</td>
+            </tr>
+            {% endfor%}
+        </table>
+    {% else %}
+        <p>No AccessRecord found</p>
+    {% endif %}
+</body>
+</html>

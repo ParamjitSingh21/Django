@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Users Data</title>
+</head>
+<body>
+    <h1>This are the user Records</h1>
+    {% if UserRecords %}
+        <table border="2px solid red">
+            <thead>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+            </thead>
+            {% for record in UserRecords %}
+            <tr>
+                <td>{{ record.fname }}</td>
+                <td>{{ record.lname }}</td>
+                <td>{{ record.email }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>No User Record</p>
+    {% endif %}
+</body>
+</html>
