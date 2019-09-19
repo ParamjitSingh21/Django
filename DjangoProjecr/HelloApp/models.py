@@ -11,6 +11,7 @@ class Webpage(models.Model):
     topic = models.ForeignKey(Topic,on_delete=models.PROTECT)
     name = models.CharField(max_length=264,unique=True)
     url = models.URLField(unique=True)
+    print('hello')
 
     def __str__(self):
         return self.name
