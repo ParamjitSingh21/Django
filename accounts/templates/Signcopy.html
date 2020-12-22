@@ -1,0 +1,31 @@
+<html>
+  {% load static %}
+
+<head>
+  <link rel="stylesheet" href="{% static '/css/login.css'%}";>
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+  <script src="{% static '/JS/fontawesome.js'%}"></script>
+  <title>Sign in</title>
+</head>
+
+<body >
+  
+  <div class="signup">
+  <div class="main" style="margin-left: 25px;">
+    <p class="sign" align="center">Create your account</p>
+    <form method="post">
+      {% csrf_token %}
+      <input class="un " type="text" align="center" placeholder="First name"name="firstname">
+      <input class="un " type="text" align="center" placeholder="Last name"name="lastname">
+      <input class="un " type="email" align="center" placeholder="Email" name="email">
+      <input class="un " type="password" align="center" placeholder="Password" name="password1">
+      <input class="un" type="password" align="center" placeholder="Confirm Password" name="password1">
+      <!-- <h5>Accept terms and conditions</h5><input type="checkbox"> -->
+      <input class="submit" type="submit" align="center"></input> 
+    </form>
+    </div>
+  </div>             
+    
+</body>
+
+</html>

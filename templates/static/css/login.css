@@ -407,3 +407,8 @@ a {
     color: white;
   }
 /* DropDown END */
+
+/* Sign up Start */
+  .signup .main{
+    height: 540px;
+  }
