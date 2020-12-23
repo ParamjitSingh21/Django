@@ -1,24 +1,52 @@
-from django.shortcuts import render
-from django.contrib.auth import login, authenticate
-from django.http import HttpResponse
-from django.conf import settings
-from django.conf.urls.static import static
-from .forms import SignUpForm
-from django import forms
+from django.shortcuts import render, redirect
+
+from django.contrib.auth import login
+from .forms import UserRegistrationForm
+# Create your views here.
 
 # Create your views here.
 
 
+def SignUp2(request):
+    if request.method == "POST":
+
+        form = UserRegistrationForm(request.POST)
+
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+
+            return redirect('index')
+    
+    else:
+        form = UserRegistrationForm()
+
+    context = {
+        'form': form
+    }
+
+    return render(request, 'SignUp.html', context)
+
+def index(request):
+    return render(request, 'login.html')
+
+
 def SignUp(request):
-    form = SignUpForm()
+    if request.method == "POST":
 
-    if request.method == 'POST':
-        form = SignUpForm(request.POST)
-        pass1 = form['password1'].value
-        pass2 = form['password2'].value
+        form = UserRegistrationForm(request.POST)
 
-        # if pass1 != pass2:
-        #     raise forms.ValidationError("Password don't match")
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
 
-        print(pass2,pass1)
-    return render(request, 'SignUp.html', {'form': form})
+            return redirect('index')
+    
+    else:
+        form = UserRegistrationForm()
+
+    context = {
+        'form': form
+    }
+
+    return render(request, 'signup.html', context)
